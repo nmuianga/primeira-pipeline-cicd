@@ -14,3 +14,12 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Docker Build and Push
+        uses: docker/build-push-action@v6
+        with:
+          context: ./src
+          file: ./src/Dockerfile
+          push: true
+          tags: |
+            nmuianga/primeira-pipeline:v1.0.${{ github.run_number }}
+            nmuianga/primeira-pipeline:latest
