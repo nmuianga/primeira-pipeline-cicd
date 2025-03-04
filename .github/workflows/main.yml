@@ -31,8 +31,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Configuration of K8s Context
         uses: azure/k8s-set-context@v4
-        method: subconfig
-        subconfig: ${{ secrets.KUBECONFIG }}
+        kubeconfig: ${{ secrets.KUBECONFIG }}
       - name: Apply the manifests
         uses: Azure/k8s-deploy@v5
         with:
