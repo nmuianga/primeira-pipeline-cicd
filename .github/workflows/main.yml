@@ -23,3 +23,20 @@ jobs:
           tags: |
             nmuianga/primeira-pipeline:v1.0.${{ github.run_number }}
             nmuianga/primeira-pipeline:latest
+  CD:
+    runs-on: ubuntu-latest
+    needs: [CI]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Configuration of K8s Context
+        uses: azure/k8s-set-context@v4
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+      - name: Apply the manifests
+        uses: Azure/k8s-deploy@v5
+        with:
+          images: |
+            nmuianga/primeira-pipeline:v1.0.${{ github.run_number }}
+          manifests: |
+            ./k8s/deployment.yaml
