@@ -22,4 +22,4 @@ jobs:
         push: true
         tags: |
           nmuianga/primeira-pipeline:latest
-          nmuianga/primeira-pipeline:v1.0.0
+          nmuianga/primeira-pipeline:v1.0.${{ github.run_number }}
