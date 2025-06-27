@@ -21,8 +21,8 @@ jobs:
         file: ./src/Dockerfile
         push: true
         tags: |
-          nmuianga/primeira-pipeline:latest
-          nmuianga/primeira-pipeline:v1.0.${{ github.run_number }}
+          nmuianga/primeira-pipeline-cicd:latest
+          nmuianga/primeira-pipeline-cicd:v1.0.${{ github.run_number }}
   CD:
     needs: [CI]
     uses: nmuianga/primeira-pipeline-cicd/.github/workflows/deploy.yml@main
