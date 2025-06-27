@@ -28,5 +28,5 @@ jobs:
     uses: nmuianga/primeira-pipeline-cicd/.github/workflows/deploy.yml@main
     with:
       manifests: k8s/deployment.yaml
-      images: nmuianga/pripemira-pipeline-cicd:v${{ github.run_number }}
+      images: nmuianga/pripemira-pipeline-cicd:v1.0.${{ github.run_number }}
     secrets: inherit
